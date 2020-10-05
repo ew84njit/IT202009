@@ -8,7 +8,6 @@ session_start();
   <li><a href="logout.php">Logout</a></li>
 </ul>
 <?php
-//we use this to safely get the email to display
 $email = "";
 if(isset($_SESSION["user"]) && isset($_SESSION["user"]["email"])){
  $email = $_SESSION["user"]["email"]; 
