@@ -42,7 +42,7 @@ if(isset($_POST["register"]))
   if($isValid)
   {
     $hash = password_hash($password, PASSWORD_BCRYPT);
-    require_once("db.php");
+    require_once(__DIR__."/../lib/db.php");
     $db = getDB();
 
     if(isset($db)){

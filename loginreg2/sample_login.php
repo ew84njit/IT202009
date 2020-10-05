@@ -28,7 +28,7 @@ if(isset($_POST["login"]))
 
   if(!strpos($email, "@"))
   {
-   $isValid = false;
+    $isValid = false;
     echo "<br>Invalid email<br>";
   }
   if($isValid)
@@ -51,8 +51,10 @@ if(isset($_POST["login"]))
       }
 
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
       if($result && isset($result["password"])){
         $password_hash_from_db = $result["password"];
+        
         if(password_verify($password, $password_hash_from_db)){
           session_start();
           unset($result["password"]);
