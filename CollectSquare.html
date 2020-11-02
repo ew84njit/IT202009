@@ -41,7 +41,7 @@ function init() {
         ball = makeRect(0, 0, ballSize, ballSize, ballSpeed, '#000000');
         drawables.push(leftPaddle);
         drawables.push(rightPaddle);
-        //drawables.push(ball);
+        drawables.push(ball);
         console.log(drawables);
         resetBall();
         attachKeyListeners();
@@ -103,6 +103,9 @@ function attachKeyListeners() {
         if (e.keyCode === DOWN) {
             keys.DOWN = true;
         }
+        if (e.keyCode === SPACE){
+        	keys.SPACE = true;
+        }
         console.log(keys);
     });
     window.addEventListener('keyup', function (e) {
@@ -118,6 +121,9 @@ function attachKeyListeners() {
         }
         if (e.keyCode === DOWN) {
             keys.DOWN = false;
+        }
+        if (e.keyCode === SPACE){
+        	keys.SPACE = false;
         }
         console.log(keys);
     });
@@ -162,6 +168,9 @@ function movePaddle() {
     }
     if (keys.DOWN) {
         leftPaddle.y += leftPaddle.s;
+    }
+    if (keys.SPACE) {
+    	ball.s = 0;
     }
     clampToCanvas(leftPaddle);
 }
