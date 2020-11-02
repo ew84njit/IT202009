@@ -202,6 +202,17 @@ function checkPaddleCollision() {
     }
 }
 function checkScore() {
+    if (rightScore === 2){
+        ball.sX = 0;
+        ball.sY = 0;
+        console.log("Right winner!");
+    }
+    else if (leftScore === 2){
+        ball.sX = 0;
+        ball.sY = 0;
+        console.log("Left winner!");
+    }
+    
     // Score if the ball goes past a paddle
     if (ball.x < leftPaddle.x) {
         rightScore++;
