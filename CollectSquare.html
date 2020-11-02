@@ -103,7 +103,7 @@ function attachKeyListeners() {
         if (e.keyCode === DOWN) {
             keys.DOWN = true;
         }
-        if (e.keyCode === SPACE){
+        if (e.keyCode === 32){
         	keys.SPACE = true;
         }
         console.log(keys);
@@ -121,9 +121,6 @@ function attachKeyListeners() {
         }
         if (e.keyCode === DOWN) {
             keys.DOWN = false;
-        }
-        if (e.keyCode === SPACE){
-        	keys.SPACE = false;
         }
         console.log(keys);
     });
