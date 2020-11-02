@@ -205,14 +205,22 @@ function checkScore() {
     if (rightScore === 2){
         ball.sX = 0;
         ball.sY = 0;
-        console.log("Right winner!");
+        context.fillStyle = '#000000';
+        context.font = '24px Arial';
+        context.textAlign = 'center';
+        context.fillText('Right wins');
+        window.clearInterval(gameLoop);
     }
     else if (leftScore === 2){
         ball.sX = 0;
         ball.sY = 0;
-        console.log("Left winner!");
+        context.fillStyle = '#000000';
+        context.font = '24px Arial';
+        context.textAlign = 'center';
+        context.fillText('Left wins');
+        window.clearInterval(gameLoop);
     }
-    
+
     // Score if the ball goes past a paddle
     if (ball.x < leftPaddle.x) {
         rightScore++;
