@@ -243,11 +243,7 @@ function checkScore() {
         resetBall();
         ball.sX *= -1;
     }
-
-
-    
 }
-
 function reloadGame(){
     if (keys.R){
         location.reload(); 
@@ -276,6 +272,7 @@ function gameLoop() {
     checkPaddleCollision();
     checkScore();
     drawScores();
+    reloadGame();
     //draw stuff
     for (let i = 0; i < drawables.length; i++) {
         drawables[i].draw();
