@@ -137,13 +137,14 @@ function attachKeyListeners() {
         if (e.keyCode === DOWN) {
             keys.DOWN = false;
         }
+        if (e.keyCode === R){
+            keys.R = false;
+        }
         if (e.keyCode === SPACE) {
             console.log("Space up");
             keys.SPACE = false;
         }
-        if (e.keyCode === R){
-            keys.R = false;
-        }
+        
 
         console.log(keys);
     });
@@ -301,6 +302,7 @@ function gameLoop() {
     checkScore();
     drawScores();
     reloadGame();
+    gamePaused();
     //draw stuff
     for (let i = 0; i < drawables.length; i++) {
         drawables[i].draw();
