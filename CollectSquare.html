@@ -21,8 +21,10 @@ var S = 83;
 var UP = 38;
 var DOWN = 40;
 var R = 82;
+var SPACE = 32;
 
 var gameOver = false; 
+var paused = false;
 
 // Keep track of pressed keys
 var keys = {
@@ -116,6 +118,9 @@ function attachKeyListeners() {
             console.log("R pressed");
             keys.R = true;
         }
+        if (e.keyCode === SPACE){
+            keys.Space = true;
+        }
         console.log(keys);
     });
     window.addEventListener('keyup', function (e) {
@@ -131,6 +136,10 @@ function attachKeyListeners() {
         }
         if (e.keyCode === DOWN) {
             keys.DOWN = false;
+        }
+        if (e.keyCode === SPACE) {
+            console.log("Space up");
+            keys.SPACE = false;
         }
         if (e.keyCode === R){
             keys.R = false;
@@ -180,9 +189,6 @@ function movePaddle() {
     if (keys.DOWN) {
         leftPaddle.y += leftPaddle.s;
     }
-    if (keys.SPACE) {
-    	ball.s = 0;
-    }
     clampToCanvas(leftPaddle);
 }
 
@@ -223,7 +229,7 @@ function checkScore() {
         context.fillStyle = '#000000';
         context.font = '24px Arial';
         context.textAlign = 'center';
-        context.fillText('Right wins. Press R to play again.',100,50);
+        context.fillText('Right wins. Press R to play again.',200,50);
         loop = window.clearInterval(gameLoop);
     }
     else if (leftScore === 2){
@@ -232,7 +238,7 @@ function checkScore() {
         context.fillStyle = '#000000';
         context.font = '24px Arial';
         context.textAlign = 'center';
-        context.fillText('Left wins. Press R to play again.',100,50);
+        context.fillText('Left wins. Press R to play again.',200,50);
         loop = window.clearInterval(gameLoop);
     }
 
@@ -254,6 +260,22 @@ function reloadGame(){
     }
 }
 
+function gamePaused(){
+    if (keys.SPACE && paused === false){
+        paused = true;
+    } 
+    else if (keys.SPACE && paused === true){
+        paused = false;
+    }
+
+    if (paused === true){
+        balls.sX = balls.sY = 0;
+    } 
+    else {
+        moveBall();
+    }
+}
+
 function drawScores() {
     // Draw the scores
     context.fillStyle = '#000000';
@@ -263,6 +285,7 @@ function drawScores() {
     context.textAlign = 'right';
     context.fillText('Score: ' + rightScore, canvas.width - 5, 24);
 }
+
 function erase() {
     context.fillStyle = '#FFFFFF';
     context.fillRect(0, 0, canvas.width, canvas.height);
