@@ -112,6 +112,7 @@ function attachKeyListeners() {
         	keys.SPACE = true;
         }
         if (e.keyCode === R){
+            console.log("R pressed");
             keys.R = true;
         }
         console.log(keys);
@@ -130,6 +131,7 @@ function attachKeyListeners() {
         if (e.keyCode === DOWN) {
             keys.DOWN = false;
         }
+
         console.log(keys);
     });
 }
@@ -178,6 +180,11 @@ function movePaddle() {
     	ball.s = 0;
     }
     clampToCanvas(leftPaddle);
+}
+function restartGame(){
+    if (keys.R){
+
+    }
 }
 function clampToCanvas(paddle) {
     if (paddle.y < 0) {
