@@ -132,6 +132,9 @@ function attachKeyListeners() {
         if (e.keyCode === DOWN) {
             keys.DOWN = false;
         }
+        if (e.keyCode === R){
+            keys.R = false;
+        }
 
         console.log(keys);
     });
@@ -244,11 +247,11 @@ function checkScore() {
         ball.sX *= -1;
     }
 }
+
 function reloadGame(){
     if (keys.R){
         location.reload();
         loop = window.clearInterval(gameLoop);
-
     }
 }
 function drawScores() {
