@@ -182,13 +182,7 @@ function movePaddle() {
     }
     clampToCanvas(leftPaddle);
 }
-function restartGame(){
-    if (keys.R){
-        rightScore = leftScore = 0;
-        resetBall();
-        ball.sX *= -1;
-    }
-}
+
 function clampToCanvas(paddle) {
     if (paddle.y < 0) {
         paddle.y = 0;
@@ -248,6 +242,13 @@ function checkScore() {
         leftScore++;
         resetBall();
         ball.sX *= -1;
+    }
+
+    if (keys.R){
+        rightScore = leftScore = 0;
+        resetBall();
+        ball.sX *= -1;
+        init();
     }
     
 }
