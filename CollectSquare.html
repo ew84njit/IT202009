@@ -248,7 +248,7 @@ function checkScore() {
         rightScore = leftScore = 0;
         resetBall();
         ball.sX *= -1;
-        init();
+        loop = window.setInterval(gameLoop, 16);
     }
     
 }
