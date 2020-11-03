@@ -246,7 +246,9 @@ function checkScore() {
 }
 function reloadGame(){
     if (keys.R){
-        location.reload(); 
+        location.reload();
+        loop = window.clearInterval(gameLoop);
+
     }
 }
 function drawScores() {
