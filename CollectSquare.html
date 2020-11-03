@@ -208,8 +208,8 @@ function checkScore() {
         context.fillStyle = '#000000';
         context.font = '24px Arial';
         context.textAlign = 'center';
-        context.fillText('Right wins');
-        window.clearInterval(gameLoop);
+        context.fillText('Right wins',0,0);
+        loop = window.clearInterval(gameLoop);
     }
     else if (leftScore === 2){
         ball.sX = 0;
@@ -217,8 +217,8 @@ function checkScore() {
         context.fillStyle = '#000000';
         context.font = '24px Arial';
         context.textAlign = 'center';
-        context.fillText('Left wins');
-        window.clearInterval(gameLoop);
+        context.fillText('Left wins',0,0);
+        loop = window.clearInterval(gameLoop);
     }
 
     // Score if the ball goes past a paddle
