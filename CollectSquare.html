@@ -223,7 +223,7 @@ function checkScore() {
         context.fillStyle = '#000000';
         context.font = '24px Arial';
         context.textAlign = 'center';
-        context.fillText('Right wins',100,50);
+        context.fillText('Right wins. Press R to play again.',100,50);
         loop = window.clearInterval(gameLoop);
     }
     else if (leftScore === 2){
@@ -232,7 +232,7 @@ function checkScore() {
         context.fillStyle = '#000000';
         context.font = '24px Arial';
         context.textAlign = 'center';
-        context.fillText('Left wins',100,50);
+        context.fillText('Left wins. Press R to play again.',100,50);
         loop = window.clearInterval(gameLoop);
     }
 
@@ -251,9 +251,9 @@ function checkScore() {
 function reloadGame(){
     if (keys.R){
         location.reload();
-        loop = window.clearInterval(gameLoop);
     }
 }
+
 function drawScores() {
     // Draw the scores
     context.fillStyle = '#000000';
