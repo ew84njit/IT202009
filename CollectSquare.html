@@ -290,6 +290,11 @@ function erase() {
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+function ballColorEffect(){
+    ball.color = '#000000';
+    ball.color = '#ffffff';
+}
+
 function gameLoop() {
     erase();
     movePaddle();
