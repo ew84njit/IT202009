@@ -141,7 +141,6 @@ function attachKeyListeners() {
             keys.R = false;
         }
         if (e.keyCode === SPACE) {
-            console.log("Space up");
             keys.SPACE = false;
         }
         
@@ -263,21 +262,16 @@ function reloadGame(){
 }
 
 function gamePaused(){
-    if (keys.SPACE && paused === false){
-        paused = true;
-    } 
-    else if (keys.SPACE && paused === true){
-        paused = false;
-    }
-
-    if (paused === true){
-        balls.sX = balls.sY = 0;
-    } 
-    else {
-        moveBall();
+    if(keys.SPACE){
+        if(paused){
+            balls.sX = balls.sY = 0;
+        }
+        else {
+            balls.sX = ballSpeed;
+            balls.sY = ballSpeed / 2;
+        }
     }
 }
-
 
 function drawScores() {
     // Draw the scores
