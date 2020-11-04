@@ -265,10 +265,12 @@ function gamePaused(){
     if(keys.SPACE){
         if(paused){
             balls.sX = balls.sY = 0;
+            paused = false;
         }
         else {
             balls.sX = ballSpeed;
             balls.sY = ballSpeed / 2;
+            paused = true;
         }
     }
 }
