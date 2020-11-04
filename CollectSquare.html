@@ -201,12 +201,14 @@ function clampToCanvas(paddle) {
     }
 }
 function moveBall() {
-    // Move the ball
-    ball.x += ball.sX;
-    ball.y += ball.sY;
-    // Bounce the ball off the top/bottom
-    if (ball.y < 0 || ball.y + ball.h > canvas.height) {
-        ball.sY *= -1;
+    if(!keys.Space){
+        // Move the ball
+        ball.x += ball.sX;
+        ball.y += ball.sY;
+        // Bounce the ball off the top/bottom
+        if (ball.y < 0 || ball.y + ball.h > canvas.height) {
+            ball.sY *= -1;
+        }
     }
 }
 function checkPaddleCollision() {
@@ -259,7 +261,7 @@ function reloadGame(){
         location.reload();
     }
 }
-
+/*
 function gamePaused(){
     if (keys.SPACE && paused === false){
         paused = true;
@@ -275,6 +277,7 @@ function gamePaused(){
         moveBall();
     }
 }
+*/
 
 function drawScores() {
     // Draw the scores
